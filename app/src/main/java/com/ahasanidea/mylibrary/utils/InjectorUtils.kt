@@ -3,6 +3,7 @@ package com.ahasanidea.mylibrary.utils
 import android.content.Context
 import com.ahasanidea.mylibrary.data.BookRepository
 import com.ahasanidea.mylibrary.data.LibraryDatabase
+import com.ahasanidea.mylibrary.viewmodels.BookDetailViewModelFactory
 import com.ahasanidea.mylibrary.viewmodels.BookListViewModelFactory
 
 /**
@@ -16,5 +17,14 @@ object InjectorUtils {
     fun provideBookListViewModelFactory(context: Context) : BookListViewModelFactory{
         val repository= getBookRepository(context)
         return BookListViewModelFactory(repository)
+    }
+    fun provideBookDetailViewModelFactory(
+        context: Context,
+        bookId:Int
+    ):BookDetailViewModelFactory{
+        return BookDetailViewModelFactory(
+            getBookRepository(context),
+            bookId
+        )
     }
 }

@@ -3,11 +3,13 @@ package com.ahasanidea.mylibrary.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ahasanidea.mylibrary.R
 import com.ahasanidea.mylibrary.data.Book
+import com.ahasanidea.mylibrary.fragments.BookListFragmentDirections
 import kotlinx.android.synthetic.main.list_item_book.view.*
 
 
@@ -33,6 +35,10 @@ class BookAdapter : ListAdapter<Book, BookAdapter.ViewHolder>(BookDiffCallback()
      fun bind(book: Book){
          item.tvBookName.text=book.name
          item.tvAuthor.text=book.author
+         item.setOnClickListener{
+            val direction=BookListFragmentDirections.actionBookListFragmentToBookDetailFragment(book.bookId)
+             it.findNavController().navigate(direction)
+         }
      }
     }
 }

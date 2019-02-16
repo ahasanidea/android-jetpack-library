@@ -21,5 +21,7 @@
     <fragment android:id="@+id/bookDetailFragment"
               android:name="com.ahasanidea.mylibrary.fragments.BookDetailFragment"
               android:label="Book Detail"
-              tools:layout="@layout/fragment_book_detail"/>
+              tools:layout="@layout/fragment_book_detail">
+        <argument android:name="bookId" app:argType="integer"/>
+    </fragment>
 </navigation>

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.ahasanidea.mylibrary.R
 import com.ahasanidea.mylibrary.adapters.BookAdapter
@@ -17,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_book_list.*
 
 
 /**
- * A simple [Fragment] subclass.
+ * This is book list fragment.
  *
  */
 class BookListFragment : Fragment() {
@@ -34,9 +35,11 @@ class BookListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val factory=InjectorUtils.provideBookListViewModelFactory(context!!)
         viewModel=ViewModelProviders.of(this,factory).get(BookListViewModel::class.java)
         val adapter=BookAdapter()
+        booksRecyclerView.layoutManager=LinearLayoutManager(this.context)
         booksRecyclerView.adapter=adapter
         subscribeUi(adapter)
     }
