@@ -10,8 +10,7 @@ import androidx.room.Relation
 class BookAndLibraryBooks {
    @Embedded lateinit var book: Book
 
-    //@Relation(parentColumn = "id",entityColumn = "book_id")
-    //var libraryBooks:List<LibraryBook>  = arrayListOf()
-
+    @Relation(parentColumn = "id",entityColumn = "book_id")
+    var libraryBooks:List<LibraryBook>  = arrayListOf()
 
 }

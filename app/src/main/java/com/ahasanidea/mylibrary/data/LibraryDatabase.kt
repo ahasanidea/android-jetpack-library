@@ -12,10 +12,11 @@ import com.ahasanidea.mylibrary.utils.DATABASE_NAME
 import com.ahasanidea.mylibrary.workers.SeedDatabaseWorker
 
 
-@Database(entities = [Book::class], version = 1)
+@Database(entities = [Book::class, LibraryBook::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class LibraryDatabase : RoomDatabase() {
     abstract fun bookDao(): BookDao
+    abstract fun libraryBookDao(): LibraryBookDao
 
     companion object {
         //For Singleton instantiation
