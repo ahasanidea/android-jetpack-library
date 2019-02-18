@@ -45,7 +45,7 @@ class BookDetailFragment : Fragment() {
             book?.let { render(book) } ?: renderBookNotFound()
         })
         fab.setOnClickListener{
-
+            viewModel.addBookToLibrary()
             Snackbar.make(it,"Added book into library",Snackbar.LENGTH_SHORT).show()
         }
     }
