@@ -6,6 +6,7 @@ import com.ahasanidea.mylibrary.data.LibraryBookRepository
 import com.ahasanidea.mylibrary.data.LibraryDatabase
 import com.ahasanidea.mylibrary.viewmodels.BookDetailViewModelFactory
 import com.ahasanidea.mylibrary.viewmodels.BookListViewModelFactory
+import com.ahasanidea.mylibrary.viewmodels.LibraryBookListViewModelFactory
 
 /**
  * Static methods used to inject classes needed for various Activities and Fragments.
@@ -20,6 +21,13 @@ object InjectorUtils {
     fun provideBookListViewModelFactory(context: Context): BookListViewModelFactory {
         val repository = getBookRepository(context)
         return BookListViewModelFactory(repository)
+    }
+
+    fun provideLibraryBookListViewModelFactory(
+        context: Context
+    ): LibraryBookListViewModelFactory {
+        val repository = getLibraryBookRepository(context)
+        return LibraryBookListViewModelFactory(repository)
     }
 
     fun provideBookDetailViewModelFactory(

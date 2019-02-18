@@ -24,5 +24,10 @@ class LibraryFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_library, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
+
 
 }
