@@ -1,7 +1,7 @@
 package com.ahasanidea.mylibrary.data
 
 /**
- * Repository module for handling data operations.
+ * Repository module for handling data operations. It uses singleton design pattern
  */
 class BookRepository private constructor(private val bookDao: BookDao) {
 
